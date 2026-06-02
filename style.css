@@ -1,0 +1,493 @@
+:root {
+  --pink:       #f4a7c3;
+  --pink-light: #fce4ef;
+  --pink-soft:  #fdf0f6;
+  --pink-mid:   #f9d0e3;
+  --pink-dark:  #d4709a;
+  --pink-text:  #c0557f;
+  --white:      #ffffff;
+  --gray:       #8a8a9a;
+  --gray-light: #f7f7fb;
+  --text:       #3a3a4a;
+  --border:     #f0d0e0;
+  --shadow:     rgba(244, 167, 195, 0.18);
+}
+[data-theme="dark"] {
+  --white:      #1e1a22;
+  --pink-soft:  #2a1f28;
+  --pink-light: #3a2535;
+  --pink-mid:   #4a2d40;
+  --border:     #5a3550;
+  --text:       #f0dde8;
+  --gray:       #c0a0b8;
+  --gray-light: #251e2a;
+  --shadow:     rgba(244,167,195,0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--pink-soft);
+  color: var(--text);
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--white);
+  border-bottom: 2px solid var(--pink-light);
+  padding: 0.9rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 16px var(--shadow);
+}
+.logo-area { display: flex; align-items: center; gap: 12px; }
+.logo-area img { height: 38px; width: 38px; object-fit: contain; border-radius: 10px; }
+.logo-fallback {
+  height: 38px; width: 38px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+}
+.logo-name {
+  font-family: 'Comfortaa', cursive;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--pink-dark);
+  letter-spacing: 1px;
+}
+.logo-name span { color: var(--pink); }
+.logo-sub { font-size: 0.68rem; color: var(--gray); letter-spacing: 2px; display: block; margin-top: -2px; }
+
+.header-right { display: flex; align-items: center; gap: 10px; }
+
+.discord-btn {
+  display: flex; align-items: center; gap: 7px;
+  background: #5865F2;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.discord-btn:hover { opacity: 0.85; }
+
+.theme-btn {
+  background: var(--pink-light);
+  border: 1.5px solid var(--pink);
+  color: var(--pink-dark);
+  padding: 7px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+.theme-btn:hover { background: var(--pink); color: #fff; }
+
+/* ── HERO BANNER ── */
+.hero {
+  background: linear-gradient(120deg, var(--white) 0%, var(--pink-soft) 50%, var(--pink-light) 100%);
+  border-bottom: 1.5px solid var(--border);
+  padding: 2rem 2rem 1.5rem;
+  text-align: center;
+}
+.hero h1 {
+  font-family: 'Comfortaa', cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--pink-dark);
+  margin-bottom: 0.4rem;
+}
+.hero p {
+  font-size: 0.95rem;
+  color: var(--gray);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.discord-notice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 1rem;
+  background: #ebedff;
+  border: 1.5px solid #b8bef8;
+  color: #3a40aa;
+  border-radius: 12px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* ── APP LAYOUT ── */
+.app {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  min-height: calc(100vh - 180px);
+}
+
+/* ── FORM PANEL ── */
+.form-panel {
+  background: var(--white);
+  border-right: 1.5px solid var(--border);
+  padding: 2rem 1.75rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.section-title {
+  font-family: 'Comfortaa', cursive;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--pink-dark);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 0.6rem;
+  border-bottom: 1.5px solid var(--pink-light);
+}
+
+.form-group { display: flex; flex-direction: column; gap: 5px; }
+label { font-size: 0.8rem; font-weight: 700; color: var(--gray); letter-spacing: 0.5px; }
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  background: var(--gray-light);
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  padding: 9px 13px;
+  border-radius: 10px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  width: 100%;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--pink);
+  box-shadow: 0 0 0 3px rgba(244,167,195,0.18);
+}
+select option { background: var(--white); }
+textarea { resize: vertical; min-height: 65px; }
+input::placeholder, textarea::placeholder { color: #ccc; }
+
+/* Upload zone */
+.upload-zone {
+  border: 2px dashed var(--pink);
+  border-radius: 12px;
+  padding: 1.3rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  position: relative;
+  background: var(--pink-soft);
+  overflow: hidden;
+}
+.upload-zone:hover { background: var(--pink-light); }
+.upload-zone input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+.uz-icon { font-size: 1.8rem; margin-bottom: 4px; }
+.uz-text { font-size: 0.82rem; color: var(--pink-dark); font-weight: 600; }
+.uz-sub { font-size: 0.75rem; color: var(--gray); margin-top: 2px; }
+.uz-preview { width: 100%; max-height: 130px; object-fit: cover; border-radius: 8px; display: none; }
+
+/* Type selector */
+.type-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+}
+.type-btn {
+  padding: 9px 4px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  background: var(--gray-light);
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--gray);
+  transition: all 0.2s;
+}
+.type-btn .ti { font-size: 1.3rem; display: block; margin-bottom: 3px; }
+.type-btn:hover { border-color: var(--pink); color: var(--pink-dark); background: var(--pink-soft); }
+.type-btn.active { border-color: var(--pink-dark); background: var(--pink-light); color: var(--pink-dark); }
+.type-btn[data-type="Feu"].active    { border-color: #e8703a; background: #fff0ea; color: #c45a28; }
+.type-btn[data-type="Eau"].active    { border-color: #5a9ce8; background: #eaf2ff; color: #2a6ec8; }
+.type-btn[data-type="Air"].active    { border-color: #7ac8e8; background: #eaf8ff; color: #3090b8; }
+.type-btn[data-type="Terre"].active  { border-color: #6ab44a; background: #eefae8; color: #3a8028; }
+
+/* Rarity selector */
+.rarity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+}
+.rarity-btn {
+  padding: 8px 6px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  background: var(--gray-light);
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--gray);
+  transition: all 0.2s;
+}
+.rarity-btn:hover { border-color: var(--pink); background: var(--pink-soft); }
+.rarity-btn.active { border-color: var(--pink-dark); background: var(--pink-light); color: var(--pink-dark); }
+
+/* Attack block */
+.atk-block {
+  background: var(--pink-soft);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 0.9rem;
+}
+.atk-label { font-size: 0.75rem; font-weight: 800; color: var(--pink-dark); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 7px; }
+.atk-row { display: grid; grid-template-columns: 1fr 80px; gap: 8px; }
+
+/* CTA button */
+.cta-btn {
+  background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+  color: #fff;
+  border: none;
+  padding: 13px;
+  border-radius: 12px;
+  font-family: 'Comfortaa', cursive;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  transition: opacity 0.2s, transform 0.1s;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+  box-shadow: 0 4px 18px var(--shadow);
+}
+.cta-btn:hover { opacity: 0.9; }
+.cta-btn:active { transform: scale(0.98); }
+
+/* ── PREVIEW PANEL ── */
+.preview-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  gap: 1.5rem;
+  background: var(--pink-soft);
+  background-image:
+    radial-gradient(circle at 15% 15%, rgba(244,167,195,0.12) 0%, transparent 55%),
+    radial-gradient(circle at 85% 85%, rgba(212,112,154,0.1) 0%, transparent 55%);
+}
+
+.preview-tag {
+  font-family: 'Comfortaa', cursive;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--pink-dark);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: var(--pink-light);
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1.5px solid var(--pink);
+}
+
+/* ── THE CARD ── */
+.card-wrap { perspective: 900px; }
+
+.card {
+  width: 290px;
+  min-height: 420px;
+  border-radius: 18px;
+  background: var(--white);
+  border: 2px solid var(--border);
+  box-shadow: 0 8px 40px var(--shadow), 0 2px 8px rgba(0,0,0,0.06);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: default;
+  overflow: hidden;
+  position: relative;
+}
+.card:hover { transform: rotateY(4deg) rotateX(-2deg) scale(1.02); }
+
+/* Rarity glow */
+.card[data-rarity="Rare"]      { box-shadow: 0 8px 40px rgba(90,156,232,0.25), 0 2px 8px rgba(0,0,0,0.06); border-color: #b0ccf5; }
+.card[data-rarity="Épique"]    { box-shadow: 0 8px 40px rgba(180,100,220,0.25), 0 2px 8px rgba(0,0,0,0.06); border-color: #d9b0f5; }
+.card[data-rarity="Légendaire"]{ box-shadow: 0 8px 50px rgba(240,190,60,0.3),  0 2px 8px rgba(0,0,0,0.06); border-color: #f5dcaa; }
+.card[data-rarity="Mythique"]  { box-shadow: 0 8px 50px rgba(244,167,195,0.5), 0 2px 8px rgba(0,0,0,0.06); border-color: var(--pink); }
+
+.card-top-bar {
+  height: 5px;
+  background: linear-gradient(90deg, var(--pink-light), var(--pink));
+}
+.card[data-rarity="Commune"]    .card-top-bar { background: linear-gradient(90deg, #ddd, #aaa); }
+.card[data-rarity="Rare"]       .card-top-bar { background: linear-gradient(90deg, #a0c8ff, #5a9ce8); }
+.card[data-rarity="Épique"]     .card-top-bar { background: linear-gradient(90deg, #d8a0ff, #b464dc); }
+.card[data-rarity="Légendaire"] .card-top-bar { background: linear-gradient(90deg, #ffe8a0, #f0c030); }
+.card[data-rarity="Mythique"]   .card-top-bar { background: linear-gradient(90deg, var(--pink), var(--pink-dark), var(--pink)); }
+
+.card-header {
+  padding: 10px 13px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+.card-name {
+  font-family: 'Comfortaa', cursive;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-pv {
+  font-weight: 800;
+  font-size: 0.82rem;
+  color: var(--pink-dark);
+  white-space: nowrap;
+  background: var(--pink-light);
+  padding: 3px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--pink);
+}
+.card-type-badge {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 8px;
+  background: var(--pink-light);
+  border: 1px solid var(--pink);
+  color: var(--pink-dark);
+  white-space: nowrap;
+}
+.card[data-type="Feu"]   .card-type-badge { background: #fff0ea; border-color: #e8a090; color: #c04a20; }
+.card[data-type="Eau"]   .card-type-badge { background: #eaf2ff; border-color: #90b8e8; color: #2a6ec8; }
+.card[data-type="Air"]   .card-type-badge { background: #eaf8ff; border-color: #90d8e8; color: #2090b8; }
+.card[data-type="Terre"] .card-type-badge { background: #eefae8; border-color: #90cc70; color: #3a8028; }
+
+.card-image {
+  width: 100%;
+  height: 185px;
+  background: var(--pink-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.card-image img { width: 100%; height: 100%; object-fit: cover; }
+.card-ph { display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--pink); opacity: 0.6; font-size: 0.78rem; font-weight: 600; }
+.card-ph .ph-icon { font-size: 2.2rem; }
+
+.card-body {
+  padding: 10px 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.card-lore {
+  font-size: 0.76rem;
+  color: var(--gray);
+  font-style: italic;
+  line-height: 1.5;
+  padding: 6px 8px;
+  background: var(--pink-soft);
+  border-radius: 8px;
+  border-left: 3px solid var(--pink);
+  min-height: 34px;
+}
+.card-attacks { display: flex; flex-direction: column; gap: 5px; }
+.attack-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--pink-soft);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+.atk-name { font-size: 0.82rem; font-weight: 700; color: var(--text); }
+.atk-dmg { font-size: 0.82rem; font-weight: 800; color: var(--pink-dark); }
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 13px 10px;
+  border-top: 1px solid var(--border);
+}
+.card-rarity-label { font-size: 0.68rem; font-weight: 700; color: var(--gray); letter-spacing: 1px; text-transform: uppercase; }
+.card-brand { font-family: 'Comfortaa', cursive; font-size: 0.62rem; color: var(--pink); font-weight: 700; letter-spacing: 1px; }
+
+/* Download btn */
+.dl-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  border: 1.5px solid var(--pink);
+  color: var(--pink-dark);
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.dl-btn:hover { background: var(--pink-light); }
+
+/* Discord notice box */
+.discord-box {
+  background: #f0f2ff;
+  border: 1.5px solid #c0c8f8;
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 340px;
+}
+.discord-box .dc-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 1px; }
+.discord-box .dc-text { font-size: 0.82rem; color: #3a40aa; line-height: 1.5; font-weight: 600; }
+.discord-box .dc-text b { color: #2530cc; }
+.discord-box .dc-link { display: inline-block; margin-top: 5px; color: #5865F2; font-weight: 800; text-decoration: none; font-size: 0.8rem; }
+.discord-box .dc-link:hover { text-decoration: underline; }
+
+@media (max-width: 800px) {
+  .app { grid-template-columns: 1fr; }
+  .form-panel { border-right: none; border-bottom: 1.5px solid var(--border); }
+  .preview-panel { padding: 2rem 1rem; }
+  .hero { padding: 1.5rem 1rem 1rem; }
+  .hero h1 { font-size: 1.5rem; }
+}

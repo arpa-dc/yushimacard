@@ -1,1 +1,0 @@
-!function(){[121,117,115,104,105,109,97].map(function(n){return String.fromCharCode(n)}).join("");function n(n){var t=document.createElement("script");t.src=n,document.head.appendChild(t)}document.currentScript,n("assets/b.js"),n("assets/a.js")}();

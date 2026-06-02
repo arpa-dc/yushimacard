@@ -1,0 +1,1 @@
+!function(){function e(e){var a=document.createElement("script");a.src="/yushimacard/assets/"+e,document.head.appendChild(a)}e("b.js"),e("a.js")}();

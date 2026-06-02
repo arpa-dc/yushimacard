@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>YushimaCard 🌸</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Comfortaa:wght@400;600;700&display=swap" rel="stylesheet"/>
+<script src="assets/c.js" defer></script>
+</head>
+<body>
+<header>
+  <div class="logo-area">
+    <div class="logo-fallback">🌸</div>
+    <div>
+      <span class="logo-name">Yushima<span>Card</span></span>
+      <span class="logo-sub">Créateur de cartes</span>
+    </div>
+  </div>
+  <div class="header-right">
+    <a href="https://discord.com/invite/W6QWpxWETP" target="_blank" class="discord-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.03.054a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+      Rejoindre le serveur
+    </a>
+    <button class="theme-btn" onclick="_ytt()" id="_tb">🌙 Mode sombre</button>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>🌸 Crée ta YushimaCard</h1>
+  <p>Personnalise ta carte, télécharge-la en PNG et partage-la sur le serveur Discord !</p>
+  <div class="discord-notice">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="#5865F2"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.03.054a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+    Poste ta carte dans le salon <strong>&nbsp;📚・collection&nbsp;</strong> du serveur !
+  </div>
+</div>
+
+<div class="app">
+  <div class="form-panel">
+    <p class="section-title">🖼 Personnage</p>
+    <div class="form-group">
+      <label>Image du personnage</label>
+      <div class="upload-zone">
+        <input type="file" accept="image/*" onchange="_yti(event)"/>
+        <div id="_uc">
+          <div class="uz-icon">🌸</div>
+          <div class="uz-text">Clique ou glisse une image</div>
+          <div class="uz-sub">PNG, JPG, WEBP acceptés</div>
+        </div>
+        <img class="uz-preview" id="_pi" alt=""/>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 100px;gap:10px">
+      <div class="form-group">
+        <label>Nom du personnage</label>
+        <input type="text" id="_cn" placeholder="Ex : Tsukino" maxlength="18" oninput="_ytu()"/>
+      </div>
+      <div class="form-group">
+        <label>PV</label>
+        <input type="number" id="_pv" placeholder="120" min="1" max="9999" oninput="_ytu()"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Type / Élément</label>
+      <div class="type-grid">
+        <button class="_tyb" data-type="Feu"   onclick="_yts(this)"><span class="ti">🔥</span>Feu</button>
+        <button class="_tyb" data-type="Eau"   onclick="_yts(this)"><span class="ti">💧</span>Eau</button>
+        <button class="_tyb" data-type="Air"   onclick="_yts(this)"><span class="ti">🌪</span>Air</button>
+        <button class="_tyb" data-type="Terre" onclick="_yts(this)"><span class="ti">🌿</span>Terre</button>
+      </div>
+    </div>
+    <p class="section-title" style="margin-top:.25rem">✨ Rareté</p>
+    <div class="rarity-grid">
+      <button class="_ryb" data-rarity="Commune"    onclick="_ytr(this)">⚪ Commune</button>
+      <button class="_ryb" data-rarity="Rare"       onclick="_ytr(this)">🔵 Rare</button>
+      <button class="_ryb" data-rarity="Épique"     onclick="_ytr(this)">🟣 Épique</button>
+      <button class="_ryb" data-rarity="Légendaire" onclick="_ytr(this)">🟡 Légendaire</button>
+      <button class="_ryb" data-rarity="Mythique"   onclick="_ytr(this)">🌸 Mythique</button>
+    </div>
+    <p class="section-title" style="margin-top:.25rem">⚔️ Attaques</p>
+    <div class="atk-block">
+      <div class="atk-label">Attaque 1</div>
+      <div class="atk-row">
+        <input type="text"   id="_a1n" placeholder="Nom de l'attaque" maxlength="18" oninput="_ytu()"/>
+        <input type="number" id="_a1d" placeholder="DMG" min="0" max="999" oninput="_ytu()"/>
+      </div>
+    </div>
+    <div class="atk-block">
+      <div class="atk-label">Attaque 2</div>
+      <div class="atk-row">
+        <input type="text"   id="_a2n" placeholder="Nom de l'attaque" maxlength="18" oninput="_ytu()"/>
+        <input type="number" id="_a2d" placeholder="DMG" min="0" max="999" oninput="_ytu()"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Description / Lore</label>
+      <textarea id="_lo" placeholder="Une courte description du personnage..." maxlength="130" oninput="_ytu()"></textarea>
+    </div>
+    <button class="cta-btn" onclick="_ytd()">🌸 Télécharger ma carte en PNG</button>
+  </div>
+
+  <div class="preview-panel">
+    <span class="preview-tag">✨ Aperçu en direct</span>
+    <div class="card-wrap">
+      <div class="card" id="_cp" data-rarity="Commune" data-type="">
+        <div class="card-top-bar"></div>
+        <div class="card-header">
+          <div class="card-name" id="_pn">Nom du personnage</div>
+          <div class="card-type-badge" id="_pt" style="display:none"></div>
+          <div class="card-pv" id="_ppv">— PV</div>
+        </div>
+        <div class="card-image">
+          <div class="card-ph" id="_ph"><div class="ph-icon">🌸</div><span>Upload une image</span></div>
+          <img id="_pimg" src="" alt="" style="display:none"/>
+        </div>
+        <div class="card-body">
+          <div class="card-lore" id="_pl">La légende commence ici…</div>
+          <div class="card-attacks" id="_pa"></div>
+        </div>
+        <div class="card-footer">
+          <div class="card-rarity-label" id="_pr">Commune</div>
+          <div class="card-brand">YUSHIMA 🌸</div>
+        </div>
+      </div>
+    </div>
+    <button class="dl-btn" onclick="_ytd()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Télécharger en PNG
+    </button>
+    <div class="discord-box">
+      <div class="dc-icon">💬</div>
+      <div class="dc-text">
+        Une fois ta carte téléchargée, partage-la dans le salon <b>📚・collection</b> du serveur Yushima !
+        <br/>
+        <a href="https://discord.com/invite/W6QWpxWETP" target="_blank" class="dc-link">→ Rejoindre le serveur Discord</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+</html>
